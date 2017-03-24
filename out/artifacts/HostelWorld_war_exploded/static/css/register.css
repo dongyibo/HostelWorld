@@ -1,0 +1,17 @@
+.state_select {
+    display: inline-block;
+}
+
+.span_prompt{
+    display: block;
+
+    color: #adadad;
+}
+
+.div_color {
+    color: #ad0e0e;
+}
+
+#recharge_div {
+    display: none;
+}

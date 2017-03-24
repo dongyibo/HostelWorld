@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nju.hostelworld.model.Reservation" table="reservation">
+
+        <id name="reid" type="java.lang.Integer">
+            <column name="reid" length="11"/>
+            <generator class="native" />
+        </id>
+
+        <property name="reserveTime" type="java.util.Date">
+            <column name="reserveTime" not-null="true"/>
+        </property>
+
+        <property name="days" type="java.lang.Integer">
+            <column name="days" length="11"/>
+        </property>
+
+        <property name="isUse" type="java.lang.String">
+            <column name="isUse" length="5"/>
+        </property>
+
+        <many-to-one name="vip" class="com.nju.hostelworld.model.VIP" column="vid"></many-to-one>
+
+        <many-to-one name="plan" class="com.nju.hostelworld.model.Plan" column="pid"></many-to-one>
+
+    </class>
+</hibernate-mapping>

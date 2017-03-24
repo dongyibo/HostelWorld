@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nju.hostelworld.model.BankCard" table="bankCard">
+
+        <id name="bid" type="java.lang.Integer">
+            <column name="bid" length="11"/>
+            <generator class="native" />
+        </id>
+
+        <property name="deposit" type="java.lang.Double">
+            <column name="deposit"/>
+        </property>
+
+        <many-to-one name="vip" column="vid" unique="true" cascade="all"></many-to-one>
+
+    </class>
+</hibernate-mapping>

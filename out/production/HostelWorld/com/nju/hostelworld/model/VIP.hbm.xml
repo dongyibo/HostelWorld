@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nju.hostelworld.model.VIP" table="vip" dynamic-insert="true" dynamic-update="true">
+
+        <id name="vid" type="java.lang.String">
+            <column name="vid" length="7"/>
+            <generator class="assigned" />
+        </id>
+
+        <property name="password" type="java.lang.String">
+            <column name="password" length="40" not-null="true"/>
+        </property>
+
+        <property name="state" type="java.lang.String">
+            <column name="state" length="20" not-null="true"/>
+        </property>
+
+        <property name="consumption" type="java.lang.Double">
+            <column name="consumption"/>
+        </property>
+
+        <property name="deadline" type="java.util.Date">
+            <column name="deadline" not-null="true"/>
+        </property>
+
+        <property name="phone" type="java.lang.String">
+            <column name="phone" length="11" not-null="true"/>
+        </property>
+
+        <many-to-one name="user" column="uid" unique="true" cascade="all"></many-to-one>
+
+        <set name="reservations" table="reservation" inverse="true">
+            <key column="vid"></key>
+            <one-to-many class="com.nju.hostelworld.model.Reservation"></one-to-many>
+        </set>
+        
+    </class>
+</hibernate-mapping>
